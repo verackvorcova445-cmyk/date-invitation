@@ -26,7 +26,7 @@ body {
 .floating-emoji {
   position: absolute;
   font-size: 30px;
-  opacity: 0.6;
+  opacity: 0.5;
   animation: floatAround linear infinite;
 }
 
@@ -41,34 +41,21 @@ body {
   position: fixed;
   z-index: 1;
   pointer-events: none; /* Чтобы не мешали нажимать кнопки */
-  opacity: 0.8;
-  mix-blend-mode: multiply; /* Убирает белый фон у картинки (если он есть) */
+  opacity: 0.9; 
+  /* Убрали mix-blend-mode, чтобы прозрачные PNG выглядели отлично */
 }
 
-.animal-1 {
-  width: 180px;
-  top: 10%;
-  left: 5%;
-  animation: floatBig 8s ease-in-out infinite alternate;
-}
-
-.animal-2 {
-  width: 150px;
-  bottom: 15%;
-  right: 8%;
-  animation: floatBig 10s ease-in-out infinite alternate-reverse;
-}
-
-.animal-3 {
-  width: 130px;
-  top: 20%;
-  right: 15%;
-  animation: floatBig 12s ease-in-out infinite alternate;
-}
+/* Настраиваем позиции и анимации для каждого животного */
+.animal-1 { width: 150px; top: 5%; left: 5%; animation: floatBig 8s ease-in-out infinite alternate; }
+.animal-2 { width: 120px; bottom: 10%; left: 15%; animation: floatBig 10s ease-in-out infinite alternate-reverse; }
+.animal-3 { width: 140px; top: 15%; right: 10%; animation: floatBig 12s ease-in-out infinite alternate; }
+.animal-4 { width: 110px; bottom: 15%; right: 20%; animation: floatBig 9s ease-in-out infinite alternate-reverse; }
+.animal-5 { width: 130px; top: 40%; left: 2%; animation: floatBig 11s ease-in-out infinite alternate; }
+.animal-6 { width: 160px; bottom: 5%; right: 5%; animation: floatBig 13s ease-in-out infinite alternate-reverse; }
 
 @keyframes floatBig {
   0% { transform: translateY(0px) rotate(-5deg); }
-  100% { transform: translateY(-30px) rotate(5deg); }
+  100% { transform: translateY(-40px) rotate(5deg); }
 }
 
 /* ================= ВЗРЫВ СЕРДЕЦ ================= */
@@ -265,6 +252,7 @@ h2 { color: #c2185b; margin-bottom: 20px; font-size: 22px; }
   background: #fce4ec;
   border-radius: 16px;
   white-space: pre-wrap;
+  width: 100%;
 }
 
 .love {
@@ -276,8 +264,7 @@ h2 { color: #c2185b; margin-bottom: 20px; font-size: 22px; }
 
 /* Картинка с животными на 5-м слайде */
 .slide-animal {
-  width: 200px;
+  width: 180px;
   margin-bottom: 15px;
   animation: floatBig 5s ease-in-out infinite alternate;
-  mix-blend-mode: multiply;
 }
