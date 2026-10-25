@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Один вопрос для тебя 💕</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Слайд 1: Вопрос -->
+  <section id="slide1" class="slide active">
+    <div class="heart-container">
+      <div class="heart-bg"></div>
+      <button id="yesBtn" class="yes-in-heart">Да 💖</button>
+    </div>
+    <button id="noBtn" class="no-btn">Нет</button>
+    <p class="hint">Попробуй нажать «Нет» 😏</p>
+  </section>
+
+  <!-- Слайд 2: Благодарность -->
+  <section id="slide2" class="slide">
+    <h1>Спасибо, что согласилась 🥹</h1>
+    <p class="sub">Я знал, что ты скажешь да.</p>
+    <button class="next-btn" data-next="slide3">Далее →</button>
+  </section>
+
+  <!-- Слайд 3: Дата и время -->
+  <section id="slide3" class="slide">
+    <h2>Когда тебе удобно?</h2>
+    <label>Выбери дату:</label>
+    <input type="date" id="datePicker">
+    <label>Выбери время:</label>
+    <input type="time" id="timePicker">
+    <button class="next-btn" data-next="slide4">Далее →</button>
+  </section>
+
+  <!-- Слайд 4: Еда и кухня -->
+  <section id="slide4" class="slide">
+    <h2>Что хочешь попробовать?</h2>
+    <div class="food-options">
+      <label><input type="checkbox" value="Итальянская кухня (паста/пицца)"> Итальянская</label>
+      <label><input type="checkbox" value="Японская кухня (суши/рамен)"> Японская</label>
+      <label><input type="checkbox" value="Грузинская кухня (хачапури/хинкали)"> Грузинская</label>
+      <label><input type="checkbox" value="Корейская кухня (барбекю/токпокки)"> Корейская</label>
+      <label><input type="checkbox" value="Десерты и кофе"> Десерты и кофе</label>
+      <label><input type="checkbox" value="Что-то новое — удиви меня"> Удиви меня</label>
+    </div>
+    <button class="next-btn" data-next="slide5">Далее →</button>
+  </section>
+
+  <!-- Слайд 5: Напоминание -->
+  <section id="slide5" class="slide">
+    <h2>Запомнила? 😊</h2>
+    <p class="reminder" id="reminderText"></p>
+    <p class="love">Люблю тебя ❤️</p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

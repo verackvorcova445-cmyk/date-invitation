@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.slide.active {
+  display: flex;
+}
+
+/* Слайд 1 */
+.heart-container {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.heart-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #e91e63;
+  clip-path: path('M110 200 C 20 130, 0 80, 0 50 C 0 10, 40 0, 70 20 C 90 35, 110 60, 110 60 C 110 60, 130 35, 150 20 C 180 0, 220 10, 220 50 C 220 80, 200 130, 110 200 Z');
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.yes-in-heart {
+  position: relative;
+  z-index: 2;
+  background: white;
+  border: none;
+  color: #e91e63;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 16px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform 0.15s;
+}
+
+.yes-in-heart:active {
+  transform: scale(0.95);
+}
+
+.no-btn {
+  background: #9e9e9e;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  position: relative;
+  margin-top: 10px;
+}
+
+.hint {
+  margin-top: 20px;
+  color: #888;
+  font-size: 13px;
+}
+
+/* Общие кнопки «Далее» */
+.next-btn {
+  margin-top: 24px;
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.next-btn:active {
+  opacity: 0.8;
+}
+
+/* Слайд 2 */
+h1 { font-size: 24px; color: #c2185b; margin-bottom: 12px; }
+.sub { color: #555; font-size: 16px; }
+
+/* Слайд 3 */
+h2 { color: #c2185b; margin-bottom: 20px; font-size: 22px; }
+
+#slide3 label {
+  display: block;
+  margin: 12px 0 6px;
+  color: #555;
+  font-size: 14px;
+  text-align: left;
+  width: 100%;
+}
+
+#slide3 input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #f8bbd0;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+}
+
+#slide3 input:focus {
+  border-color: #e91e63;
+}
+
+/* Слайд 4 */
+.food-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin: 16px 0;
+  text-align: left;
+}
+
+.food-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #fce4ec;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s;
+}
+
+.food-options label:has(input:checked) {
+  background: #f8bbd0;
+  font-weight: 600;
+}
+
+.food-options input {
+  width: 18px;
+  height: 18px;
+  accent-color: #e91e63;
+}
+
+/* Слайд 5 */
+.reminder {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.8;
+  margin: 20px 0;
+  padding: 20px;
+  background: #fce4ec;
+  border-radius: 16px;
+}
+
+.love {
+  font-size: 22px;
+  color: #e91e63;
+  font-weight: 700;
+  margin-top: 10px;
+}
