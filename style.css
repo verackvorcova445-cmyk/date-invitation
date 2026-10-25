@@ -11,9 +11,51 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; /* Чтобы фон не создавал скролл */
+}
+
+/* ================= ФОН: Животные и сердечки ================= */
+#background-elements {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
   overflow: hidden;
 }
 
+.floating-emoji {
+  position: absolute;
+  font-size: 30px;
+  opacity: 0.6;
+  animation: floatAround linear infinite;
+}
+
+@keyframes floatAround {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-40px) rotate(20deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* ================= ВЗРЫВ СЕРДЕЦ ================= */
+#heart-explosion {
+  position: fixed;
+  top: 50%; left: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.exploding-heart {
+  position: absolute;
+  font-size: 24px;
+  animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
+}
+
+/* ================= СЛАЙДЫ ================= */
 .slide {
   display: none;
   flex-direction: column;
@@ -23,11 +65,12 @@ body {
   padding: 30px;
   width: 100%;
   max-width: 500px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-radius: 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   position: relative;
+  z-index: 10;
 }
 
 .slide.active {
@@ -74,9 +117,7 @@ body {
   transition: transform 0.15s;
 }
 
-.yes-in-heart:active {
-  transform: scale(0.95);
-}
+.yes-in-heart:active { transform: scale(0.95); }
 
 .no-btn {
   background: #9e9e9e;
@@ -86,16 +127,13 @@ body {
   border-radius: 50px;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.15s ease;
-  position: relative;
+  /* Плавный переход для движения */
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  position: absolute;
   margin-top: 10px;
 }
 
-.hint {
-  margin-top: 20px;
-  color: #888;
-  font-size: 13px;
-}
+.hint { margin-top: 60px; color: #888; font-size: 13px; }
 
 /* Общие кнопки «Далее» */
 .next-btn {
@@ -110,9 +148,7 @@ body {
   transition: opacity 0.2s;
 }
 
-.next-btn:active {
-  opacity: 0.8;
-}
+.next-btn:active { opacity: 0.8; }
 
 /* Слайд 2 */
 h1 { font-size: 24px; color: #c2185b; margin-bottom: 12px; }
@@ -139,41 +175,51 @@ h2 { color: #c2185b; margin-bottom: 20px; font-size: 22px; }
   outline: none;
 }
 
-#slide3 input:focus {
-  border-color: #e91e63;
+#slide3 input:focus { border-color: #e91e63; }
+
+/* Слайд 4: Сетка еды */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+  width: 100%;
 }
 
-/* Слайд 4 */
-.food-options {
+.food-card {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  margin: 16px 0;
-  text-align: left;
-}
-
-.food-options label {
-  display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 16px;
+  padding: 15px 5px;
   background: #fce4ec;
-  border-radius: 12px;
+  border-radius: 16px;
   cursor: pointer;
-  font-size: 15px;
-  transition: background 0.2s;
+  transition: all 0.2s;
+  position: relative;
 }
 
-.food-options label:has(input:checked) {
-  background: #f8bbd0;
+.food-card input { display: none; } /* Скрываем стандартный чекбокс */
+
+.food-icon {
+  font-size: 40px;
+  margin-bottom: 8px;
+  transition: transform 0.2s;
+}
+
+.food-card span:last-child {
+  font-size: 13px;
   font-weight: 600;
+  color: #555;
 }
 
-.food-options input {
-  width: 18px;
-  height: 18px;
-  accent-color: #e91e63;
+/* Эффект при выборе еды */
+.food-card:has(input:checked) {
+  background: #f8bbd0;
+  box-shadow: inset 0 0 0 2px #e91e63;
+}
+
+.food-card:has(input:checked) .food-icon {
+  transform: scale(1.2) rotate(10deg);
 }
 
 /* Слайд 5 */
@@ -185,6 +231,7 @@ h2 { color: #c2185b; margin-bottom: 20px; font-size: 22px; }
   padding: 20px;
   background: #fce4ec;
   border-radius: 16px;
+  white-space: pre-wrap;
 }
 
 .love {
