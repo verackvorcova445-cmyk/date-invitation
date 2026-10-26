@@ -14,7 +14,7 @@ body {
   overflow: hidden;
 }
 
-/* ================= ФОН ================= */
+/* ================= ФОН: Маленькие эмодзи ================= */
 #background-elements {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -36,20 +36,30 @@ body {
   100% { transform: translateY(0) rotate(0deg); }
 }
 
+/* ================= БОЛЬШИЕ ЖИВОТНЫЕ НА ФОНЕ ================= */
 .bg-animal {
   position: fixed;
   z-index: 1;
   pointer-events: none; 
-  opacity: 0.9; 
+  opacity: 0.85; 
 }
 
-.animal-1 { width: 150px; top: 5%; left: 5%; animation: floatBig 8s ease-in-out infinite alternate; }
-.animal-2 { width: 120px; bottom: 10%; left: 15%; animation: floatBig 10s ease-in-out infinite alternate-reverse; }
-.animal-3 { width: 140px; top: 15%; right: 10%; animation: floatBig 12s ease-in-out infinite alternate; }
-.animal-4 { width: 110px; bottom: 15%; right: 20%; animation: floatBig 9s ease-in-out infinite alternate-reverse; }
-.animal-5 { width: 130px; top: 40%; left: 2%; animation: floatBig 11s ease-in-out infinite alternate; }
-.animal-6 { width: 160px; bottom: 5%; right: 5%; animation: floatBig 13s ease-in-out infinite alternate-reverse; }
+/* Распределяем 6 котиков */
+.animal-1 { width: 120px; top: 5%; left: 5%; animation: floatBig 8s ease-in-out infinite alternate; }
+.animal-2 { width: 150px; bottom: 10%; left: 10%; animation: floatBig 10s ease-in-out infinite alternate-reverse; }
+.animal-3 { width: 100px; top: 15%; right: 10%; animation: floatBig 12s ease-in-out infinite alternate; }
+.animal-4 { width: 130px; bottom: 15%; right: 15%; animation: floatBig 9s ease-in-out infinite alternate-reverse; }
+.animal-5 { width: 140px; top: 45%; left: 2%; animation: floatBig 11s ease-in-out infinite alternate; }
+.animal-6 { width: 110px; bottom: 5%; right: 3%; animation: floatBig 13s ease-in-out infinite alternate-reverse; }
 
+/* Распределяем 5 кроликов */
+.animal-7 { width: 130px; top: 10%; left: 25%; animation: floatBig 9.5s ease-in-out infinite alternate; }
+.animal-8 { width: 100px; bottom: 25%; right: 30%; animation: floatBig 11.5s ease-in-out infinite alternate-reverse; }
+.animal-9 { width: 140px; top: 60%; right: 2%; animation: floatBig 8.5s ease-in-out infinite alternate; }
+.animal-10 { width: 120px; bottom: 5%; left: 35%; animation: floatBig 12.5s ease-in-out infinite alternate-reverse; }
+.animal-11 { width: 160px; top: 30%; left: 10%; animation: floatBig 14s ease-in-out infinite alternate; }
+
+/* Плавное покачивание для всех животных */
 @keyframes floatBig {
   0% { transform: translateY(0px) rotate(-5deg); }
   100% { transform: translateY(-40px) rotate(5deg); }
@@ -279,11 +289,11 @@ h2 { color: #c2185b; margin-bottom: 20px; font-size: 22px; }
 .screenshot-hint {
   margin-top: 20px;
   padding: 12px 20px;
-  background: #fff3e0; /* Нежный персиковый цвет */
+  background: #fff3e0;
   border-radius: 12px;
   color: #e65100;
   font-weight: 600;
   font-size: 15px;
   line-height: 1.4;
-  animation: pulse 2s infinite; /* Легкая пульсация, чтобы привлечь внимание */
+  animation: pulse 2s infinite;
 }
