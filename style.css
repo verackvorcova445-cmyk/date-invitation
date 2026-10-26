@@ -274,3 +274,16 @@ h2 { color: #c2185b; margin-bottom: 20px; font-size: 22px; }
   margin-bottom: 10px;
   animation: floatBig 5s ease-in-out infinite alternate;
 }
+
+/* Подсказка про скриншот */
+.screenshot-hint {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #fff3e0; /* Нежный персиковый цвет */
+  border-radius: 12px;
+  color: #e65100;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.4;
+  animation: pulse 2s infinite; /* Легкая пульсация, чтобы привлечь внимание */
+}
