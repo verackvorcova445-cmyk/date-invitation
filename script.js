@@ -1,6 +1,6 @@
-// ====== Генерация фона (маленькие эмодзи и сердечки) ======
+// ====== Генерация фона ======
 const bgContainer = document.getElementById('background-elements');
-const bgEmojis = ['❤️', '💖', '💕', '🌸', '✨'];
+const bgEmojis = ['❤️', '💖', '💕', '🌸', '✨', '👨‍🦲']; // Добавил лысину для смеха
 
 function createBackgroundItem() {
   const el = document.createElement('div');
@@ -98,7 +98,7 @@ yesBtn.addEventListener('click', () => {
   }, 600);
 });
 
-// ====== Универсальная навигация ======
+// ====== Навигация ======
 function showSlide(id) {
   document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
@@ -107,19 +107,34 @@ function showSlide(id) {
 document.querySelectorAll('.next-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const next = btn.dataset.next;
-    if (next === 'slide5') {
+    if (next === 'slide6') {
       buildReminder();
     }
     showSlide(next);
   });
 });
 
-// ====== Слайд 5: Напоминание ======
+// ====== Слайд 6: Сбор данных и отправка ======
 function buildReminder() {
+  // 1. Получаем ресторан
+  const restaurantVal = document.querySelector('input[name="restaurant"]:checked');
+  let restStr = restaurantVal ? restaurantVal.value : 'Ресторан не выбран';
+
+  // 2. Получаем еду
+  const checkedFood = document.querySelectorAll('.slide:nth-child(4) input[type="checkbox"]:checked');
+  let foodStr = '';
+  if (checkedFood.length > 0) {
+    const foods = Array.from(checkedFood).map(c => c.value);
+    foodStr = foods.join(', ');
+  } else {
+    foodStr = 'Ужин не выбран';
+  }
+
+  // 3. Получаем дату и время
   const dateVal = document.getElementById('datePicker').value;
   const timeVal = document.getElementById('timePicker').value;
 
-  let dateStr = 'дату ты ещё не выбрала';
+  let dateStr = 'дату не выбрала';
   if (dateVal) {
     const d = new Date(dateVal + 'T00:00:00');
     const options = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -128,15 +143,13 @@ function buildReminder() {
 
   let timeStr = timeVal ? timeVal : 'время уточним';
 
-  const checked = document.querySelectorAll('.food-card input:checked');
-  let foodStr = '';
-  if (checked.length > 0) {
-    const foods = Array.from(checked).map(c => c.value);
-    foodStr = 'Кухня: ' + foods.join(', ') + '.';
-  } else {
-    foodStr = 'Еду выберем вместе.';
-  }
-
-  const text = `📅 ${dateStr}\n⏰ ${timeStr}\n🍽 ${foodStr}\n\nБудь готова, я заеду за тобой.`;
+  // 4. Формируем красивый текст для экрана
+  const text = `📍 ${restStr}\n🍽 ${foodStr}\n📅 ${dateStr}\n⏰ ${timeStr}\n\nЖду с нетерпением!`;
   document.getElementById('reminderText').innerText = text;
+
+  // 5. Записываем данные в скрытые поля формы для отправки на почту
+  document.getElementById('formRestaurant').value = restStr;
+  document.getElementById('formFood').value = foodStr;
+  document.getElementById('formDate').value = dateStr;
+  document.getElementById('formTime').value = timeStr;
 }
