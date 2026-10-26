@@ -44,13 +44,20 @@ body {
   opacity: 0.85; 
 }
 
-/* Распределяем наши 6 картинок */
+/* Распределяем 6 котиков */
 .animal-1 { width: 120px; top: 5%; left: 5%; animation: floatBig 8s ease-in-out infinite alternate; }
-.animal-2 { width: 150px; bottom: 10%; left: 10%; animation: floatBig 10s ease-in-out infinite alternate-reverse; }
-.animal-3 { width: 130px; top: 10%; left: 25%; animation: floatBig 9.5s ease-in-out infinite alternate; }
-.animal-4 { width: 100px; bottom: 25%; right: 30%; animation: floatBig 11.5s ease-in-out infinite alternate-reverse; }
-.animal-5 { width: 140px; top: 45%; left: 2%; animation: floatBig 11s ease-in-out infinite alternate; }
-.animal-6 { width: 110px; bottom: 5%; right: 3%; animation: floatBig 13s ease-in-out infinite alternate-reverse; }
+.animal-2 { width: 100px; bottom: 10%; left: 15%; animation: floatBig 10s ease-in-out infinite alternate-reverse; }
+.animal-3 { width: 130px; top: 20%; left: 2%; animation: floatBig 12s ease-in-out infinite alternate; }
+.animal-4 { width: 110px; bottom: 5%; left: 30%; animation: floatBig 9s ease-in-out infinite alternate-reverse; }
+.animal-5 { width: 140px; top: 50%; left: 5%; animation: floatBig 11s ease-in-out infinite alternate; }
+.animal-6 { width: 90px; top: 75%; left: 20%; animation: floatBig 13s ease-in-out infinite alternate-reverse; }
+
+/* Распределяем 5 кроликов */
+.animal-7 { width: 120px; top: 8%; right: 5%; animation: floatBig 9.5s ease-in-out infinite alternate; }
+.animal-8 { width: 100px; bottom: 15%; right: 15%; animation: floatBig 11.5s ease-in-out infinite alternate-reverse; }
+.animal-9 { width: 150px; top: 35%; right: 2%; animation: floatBig 8.5s ease-in-out infinite alternate; }
+.animal-10 { width: 110px; bottom: 5%; right: 25%; animation: floatBig 12.5s ease-in-out infinite alternate-reverse; }
+.animal-11 { width: 130px; top: 70%; right: 10%; animation: floatBig 14s ease-in-out infinite alternate; }
 
 @keyframes floatBig {
   0% { transform: translateY(0px) rotate(-5deg); }
