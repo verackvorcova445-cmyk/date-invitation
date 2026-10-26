@@ -11,19 +11,21 @@
   <!-- Фоновые элементы (маленькие эмодзи) -->
   <div id="background-elements"></div>
   
-  <!-- ВСЕ 11 ВАШИХ ЖИВОТНЫХ (6 котиков и 5 кроликов) -->
-  <img src="cat1.png" class="bg-animal animal-1" alt="Котенок">
-  <img src="cat2.png" class="bg-animal animal-2" alt="Котенок 2">
-  <img src="cat3.png" class="bg-animal animal-3" alt="Котенок 3">
-  <img src="cat4.png" class="bg-animal animal-4" alt="Котенок 4">
-  <img src="cat5.png" class="bg-animal animal-5" alt="Котенок 5">
-  <img src="cat6.png" class="bg-animal animal-6" alt="Котенок 6">
+  <!-- ВАШИ 11 КАРТИНОК (скрипт их размножит и расставит) -->
+  <div id="animal-container">
+    <img src="cat1.png" class="animal-source" alt="Котенок">
+    <img src="cat2.png" class="animal-source" alt="Котенок 2">
+    <img src="cat3.png" class="animal-source" alt="Котенок 3">
+    <img src="cat4.png" class="animal-source" alt="Котенок 4">
+    <img src="cat5.png" class="animal-source" alt="Котенок 5">
+    <img src="cat6.png" class="animal-source" alt="Котенок 6">
 
-  <img src="bunny1.png" class="bg-animal animal-7" alt="Кролик">
-  <img src="bunny2.png" class="bg-animal animal-8" alt="Кролик 2">
-  <img src="bunny3.png" class="bg-animal animal-9" alt="Кролик 3">
-  <img src="bunny4.png" class="bg-animal animal-10" alt="Кролик 4">
-  <img src="bunny5.png" class="bg-animal animal-11" alt="Кролик 5">
+    <img src="bunny1.png" class="animal-source" alt="Кролик">
+    <img src="bunny2.png" class="animal-source" alt="Кролик 2">
+    <img src="bunny3.png" class="animal-source" alt="Кролик 3">
+    <img src="bunny4.png" class="animal-source" alt="Кролик 4">
+    <img src="bunny5.png" class="animal-source" alt="Кролик 5">
+  </div>
 
   <!-- Контейнер для взрыва сердец -->
   <div id="heart-explosion"></div>
@@ -105,9 +107,9 @@
   <!-- НОВЫЙ СЛАЙД: Комплимент -->
   <section id="slide-girl" class="slide">
     <div class="compliment-container">
-      <img src="cat3.png" class="compliment-img left-img" alt="Котенок">
+      <img src="cat1.png" class="compliment-img left-img" alt="Котенок">
       <h2 class="bright-text">Здесь я просто напомню, что ты самая очаровательная девушка на свете 💖✨</h2>
-      <img src="bunny3.png" class="compliment-img right-img" alt="Кролик">
+      <img src="bunny1.png" class="compliment-img right-img" alt="Кролик">
     </div>
     <button class="next-btn" data-next="slide5">Далее →</button>
   </section>
@@ -126,7 +128,7 @@
   <section id="slide6" class="slide">
     <h2>Запомнила? 😊</h2>
     
-    <img src="bunny4.png" class="slide-animal" alt="Кролик">
+    <img src="bunny2.png" class="slide-animal" alt="Кролик">
     
     <p class="reminder" id="reminderText"></p>
     
