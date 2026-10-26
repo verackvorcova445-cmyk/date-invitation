@@ -1,6 +1,6 @@
 // ====== Генерация фона ======
 const bgContainer = document.getElementById('background-elements');
-const bgEmojis = ['❤️', '💖', '💕', '🌸', '✨', '👨‍🦲']; // Лысина для смеха
+const bgEmojis = ['❤️', '💖', '💕', '🌸', '✨', '👨‍🦲'];
 
 function createBackgroundItem() {
   const el = document.createElement('div');
@@ -116,12 +116,12 @@ document.querySelectorAll('.next-btn').forEach(btn => {
 
 // ====== Слайд 6: Сбор данных для экрана ======
 function buildReminder() {
-  // 1. Ресторан
+  // 1. Получаем ресторан
   const restaurantVal = document.querySelector('input[name="restaurant"]:checked');
   let restStr = restaurantVal ? restaurantVal.value : 'Ресторан не выбран';
 
-  // 2. Еда
-  const checkedFood = document.querySelectorAll('.slide:nth-child(4) input[type="checkbox"]:checked');
+  // 2. Получаем еду (ИСПРАВЛЕНО: ищем ВСЕ выбранные чекбоксы на странице)
+  const checkedFood = document.querySelectorAll('input[type="checkbox"]:checked');
   let foodStr = '';
   if (checkedFood.length > 0) {
     const foods = Array.from(checkedFood).map(c => c.value);
@@ -130,7 +130,7 @@ function buildReminder() {
     foodStr = 'Ужин не выбран';
   }
 
-  // 3. Дата и время
+  // 3. Получаем дату и время
   const dateVal = document.getElementById('datePicker').value;
   const timeVal = document.getElementById('timePicker').value;
 
