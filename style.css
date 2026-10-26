@@ -44,24 +44,23 @@ body {
   opacity: 0.85; 
 }
 
-/* Распределяем 6 котиков */
-.animal-1 { width: 120px; top: 5%; left: 5%; animation: floatBig 8s ease-in-out infinite alternate; }
-.animal-2 { width: 100px; bottom: 10%; left: 15%; animation: floatBig 10s ease-in-out infinite alternate-reverse; }
-.animal-3 { width: 130px; top: 20%; left: 2%; animation: floatBig 12s ease-in-out infinite alternate; }
-.animal-4 { width: 110px; bottom: 5%; left: 30%; animation: floatBig 9s ease-in-out infinite alternate-reverse; }
-.animal-5 { width: 140px; top: 50%; left: 5%; animation: floatBig 11s ease-in-out infinite alternate; }
-.animal-6 { width: 90px; top: 75%; left: 20%; animation: floatBig 13s ease-in-out infinite alternate-reverse; }
+/* Картинки стали БОЛЬШЕ (от 180px до 250px), а анимация МЕДЛЕННЕЕ (от 15s до 25s) */
+.animal-1 { width: 220px; top: 2%; left: 2%; animation: floatBig 18s ease-in-out infinite alternate; }
+.animal-2 { width: 180px; bottom: 8%; left: 10%; animation: floatBig 22s ease-in-out infinite alternate-reverse; }
+.animal-3 { width: 200px; top: 15%; left: -2%; animation: floatBig 25s ease-in-out infinite alternate; }
+.animal-4 { width: 160px; bottom: 2%; left: 25%; animation: floatBig 20s ease-in-out infinite alternate-reverse; }
+.animal-5 { width: 250px; top: 45%; left: 2%; animation: floatBig 24s ease-in-out infinite alternate; }
+.animal-6 { width: 170px; top: 70%; left: 15%; animation: floatBig 19s ease-in-out infinite alternate-reverse; }
 
-/* Распределяем 5 кроликов */
-.animal-7 { width: 120px; top: 8%; right: 5%; animation: floatBig 9.5s ease-in-out infinite alternate; }
-.animal-8 { width: 100px; bottom: 15%; right: 15%; animation: floatBig 11.5s ease-in-out infinite alternate-reverse; }
-.animal-9 { width: 150px; top: 35%; right: 2%; animation: floatBig 8.5s ease-in-out infinite alternate; }
-.animal-10 { width: 110px; bottom: 5%; right: 25%; animation: floatBig 12.5s ease-in-out infinite alternate-reverse; }
-.animal-11 { width: 130px; top: 70%; right: 10%; animation: floatBig 14s ease-in-out infinite alternate; }
+.animal-7 { width: 240px; top: 5%; right: 2%; animation: floatBig 21s ease-in-out infinite alternate; }
+.animal-8 { width: 190px; bottom: 10%; right: 10%; animation: floatBig 23s ease-in-out infinite alternate-reverse; }
+.animal-9 { width: 210px; top: 30%; right: -2%; animation: floatBig 17s ease-in-out infinite alternate; }
+.animal-10 { width: 180px; bottom: 2%; right: 25%; animation: floatBig 26s ease-in-out infinite alternate-reverse; }
+.animal-11 { width: 230px; top: 65%; right: 5%; animation: floatBig 20s ease-in-out infinite alternate; }
 
 @keyframes floatBig {
   0% { transform: translateY(0px) rotate(-5deg); }
-  100% { transform: translateY(-40px) rotate(5deg); }
+  100% { transform: translateY(-50px) rotate(5deg); }
 }
 
 /* ================= ВЗРЫВ СЕРДЕЦ ================= */
@@ -154,6 +153,7 @@ body {
 
 .yes-in-heart:active { transform: scale(0.95); }
 
+/* ИСПРАВЛЕНО: Кнопка "Нет" изначально стоит по центру под сердечком */
 .no-btn {
   background: #9e9e9e;
   color: white;
@@ -164,10 +164,20 @@ body {
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   position: absolute;
-  margin-top: 10px;
+  /* Задаем точное позиционирование по центру */
+  left: 50%;
+  bottom: 60px;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 5;
 }
 
-.hint { margin-top: 60px; color: #888; font-size: 13px; }
+.hint { 
+  position: absolute;
+  bottom: 20px;
+  color: #888; 
+  font-size: 13px; 
+}
 
 /* Общие кнопки «Далее» */
 .next-btn {
