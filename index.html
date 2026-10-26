@@ -105,32 +105,20 @@
     <button class="next-btn" data-next="slide6">Далее →</button>
   </section>
 
-  <!-- Слайд 6: Напоминание и отправка -->
+  <!-- Слайд 6: Напоминание (БЕЗ отправки на почту) -->
   <section id="slide6" class="slide">
     <h2>Запомнила? 😊</h2>
     
     <img src="bunny1.png" class="slide-animal" alt="Кролик">
     
-    <!-- ЗДЕСЬ ВАША ПОЧТА -->
-    <form action="https://formsubmit.co/vera.skvortsova.07@inbox.ru" method="POST" id="resultForm">
-      
-      <!-- Скрытые поля для письма -->
-      <input type="hidden" name="_subject" value="Результаты свидания с Александрой! 💖">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      
-      <!-- Сюда скрипт вставит данные -->
-      <input type="hidden" name="Ресторан" id="formRestaurant">
-      <input type="hidden" name="Ужин" id="formFood">
-      <input type="hidden" name="Дата" id="formDate">
-      <input type="hidden" name="Время" id="formTime">
-
-      <p class="reminder" id="reminderText"></p>
-      
-      <button type="submit" class="next-btn" style="margin-top: 15px;">Отправить и закрыть 💌</button>
-    </form>
-
+    <p class="reminder" id="reminderText"></p>
+    
     <p class="love">С тебя поцелуй в мою шикарную лысину ❤️</p>
+
+    <!-- Милая надпись про скриншот -->
+    <div class="screenshot-hint">
+      <p>📸 А теперь заскринь этот экран и отправь мне, чтобы я всё забронировал!</p>
+    </div>
   </section>
 
   <script src="script.js"></script>
