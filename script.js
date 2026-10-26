@@ -1,8 +1,8 @@
-// ====== Генерация фона ======
+// ====== Генерация фона (эмодзи) ======
 const bgContainer = document.getElementById('background-elements');
-const bgEmojis = ['❤️', '💖', '💕', '🌸', '✨', '👨‍🦲'];
+const bgEmojis = ['❤️', '💖', '💕', '🌸', '✨'];
 
-function createBackgroundItem() {
+function createBackgroundEmoji() {
   const el = document.createElement('div');
   el.classList.add('floating-emoji');
   el.innerText = bgEmojis[Math.floor(Math.random() * bgEmojis.length)];
@@ -19,7 +19,40 @@ function createBackgroundItem() {
 }
 
 for (let i = 0; i < 20; i++) {
-  createBackgroundItem();
+  createBackgroundEmoji();
+}
+
+// ====== УМНОЕ РАЗМНОЖЕНИЕ ЖИВОТНЫХ ======
+// Берем ваши 11 картинок и создаем из них много маленьких летающих копий
+const sourceImages = document.querySelectorAll('.animal-source');
+const TOTAL_ANIMALS = 35; // Сколько всего животных будет летать на фоне
+
+for (let i = 0; i < TOTAL_ANIMALS; i++) {
+  // Берем случайную картинку из ваших 11
+  const randomImg = sourceImages[Math.floor(Math.random() * sourceImages.length)];
+  
+  // Создаем копию
+  const clone = document.createElement('img');
+  clone.src = randomImg.src;
+  clone.classList.add('bg-animal');
+  
+  // Размер: от 50 до 100 пикселей
+  const size = 50 + Math.random() * 50;
+  clone.style.width = size + 'px';
+  
+  // Позиция по всему экрану
+  clone.style.left = Math.random() * 95 + 'vw';
+  clone.style.top = Math.random() * 95 + 'vh';
+  
+  // Скорость: быстрая (от 3 до 7 секунд на цикл)
+  const duration = 3 + Math.random() * 4;
+  clone.style.animationDuration = duration + 's';
+  
+  // Задержка, чтобы они не начинали движение одновременно
+  clone.style.animationDelay = (Math.random() * 5) + 's';
+  
+  // Добавляем на страницу
+  document.body.appendChild(clone);
 }
 
 // ====== Слайд 1: Убегающая кнопка ======
@@ -36,19 +69,16 @@ function dodge() {
   const slideRect = slide1.getBoundingClientRect();
   const btnRect = noBtn.getBoundingClientRect();
 
-  // Вычисляем свободное пространство внутри карточки
   const maxX = slideRect.width - btnRect.width - 40;
   const maxY = slideRect.height - btnRect.height - 40;
 
-  // Генерируем случайную позицию
   const newX = Math.random() * maxX + 20;
   const newY = Math.random() * maxY + 20;
 
-  // Применяем новые координаты (убираем старый transform, который центрировал)
   noBtn.style.left = newX + 'px';
   noBtn.style.top = newY + 'px';
-  noBtn.style.bottom = 'auto'; // Отключаем привязку к низу
-  noBtn.style.transform = 'none'; // Убираем сдвиг по X
+  noBtn.style.bottom = 'auto'; 
+  noBtn.style.transform = 'none'; 
   
   const texts = ["Нет", "Точно нет?", "Уверена?", "Подумай!", "Не убежишь!", "Давай 'Да'!", "Ну пожалуйста 🥺"];
   noBtn.innerText = texts[Math.min(noAttempts, texts.length - 1)];
