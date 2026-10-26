@@ -11,19 +11,13 @@
   <!-- Фоновые элементы (маленькие эмодзи) -->
   <div id="background-elements"></div>
   
-  <!-- Большие нарисованные животные на фоне (6 котиков и 5 кроликов) -->
+  <!-- Большие нарисованные животные на фоне (оставил 6 картинок, как у вас в репозитории) -->
   <img src="cat1.png" class="bg-animal animal-1" alt="Котенок">
   <img src="cat2.png" class="bg-animal animal-2" alt="Котенок 2">
-  <img src="cat3.png" class="bg-animal animal-3" alt="Котенок 3">
-  <img src="cat4.png" class="bg-animal animal-4" alt="Котенок 4">
-  <img src="cat5.png" class="bg-animal animal-5" alt="Котенок 5">
-  <img src="cat6.png" class="bg-animal animal-6" alt="Котенок 6">
-
   <img src="bunny1.png" class="bg-animal animal-7" alt="Кролик">
   <img src="bunny2.png" class="bg-animal animal-8" alt="Кролик 2">
-  <img src="bunny3.png" class="bg-animal animal-9" alt="Кролик 3">
-  <img src="bunny4.png" class="bg-animal animal-10" alt="Кролик 4">
-  <img src="bunny5.png" class="bg-animal animal-11" alt="Кролик 5">
+  <img src="bear1.png" class="bg-animal animal-5" alt="Мишка">
+  <img src="bear2.png" class="bg-animal animal-6" alt="Мишка 2">
 
   <!-- Контейнер для взрыва сердец -->
   <div id="heart-explosion"></div>
@@ -99,10 +93,21 @@
         <span>Шашлычок с вином</span>
       </label>
     </div>
+    <!-- Кнопка теперь ведет на новый слайд -->
+    <button class="next-btn" data-next="slide-girl">Далее →</button>
+  </section>
+
+  <!-- НОВЫЙ СЛАЙД: Комплимент -->
+  <section id="slide-girl" class="slide">
+    <div class="compliment-container">
+      <img src="cat1.png" class="compliment-img left-img" alt="Котенок">
+      <h2 class="bright-text">Здесь я просто напомню, что ты самая очаровательная девушка на свете 💖✨</h2>
+      <img src="bunny1.png" class="compliment-img right-img" alt="Кролик">
+    </div>
     <button class="next-btn" data-next="slide5">Далее →</button>
   </section>
 
-  <!-- Слайд 5: Выбор даты -->
+  <!-- Слайд 5: Выбор даты (бывший 5-й, теперь идет после комплимента) -->
   <section id="slide5" class="slide">
     <h2>Когда тебе удобно?</h2>
     <label>Выбери дату:</label>
@@ -112,17 +117,16 @@
     <button class="next-btn" data-next="slide6">Далее →</button>
   </section>
 
-  <!-- Слайд 6: Напоминание -->
+  <!-- Слайд 6: Напоминание (бывший 6-й) -->
   <section id="slide6" class="slide">
     <h2>Запомнила? 😊</h2>
     
-    <img src="bunny1.png" class="slide-animal" alt="Кролик">
+    <img src="bunny2.png" class="slide-animal" alt="Кролик">
     
     <p class="reminder" id="reminderText"></p>
     
     <p class="love">С тебя поцелуй в мою шикарную лысину ❤️</p>
 
-    <!-- Милая надпись про скриншот -->
     <div class="screenshot-hint">
       <p>📸 А теперь заскринь этот экран и отправь мне, чтобы я всё забронировал!</p>
     </div>
