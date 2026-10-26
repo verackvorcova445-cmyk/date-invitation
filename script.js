@@ -22,7 +22,7 @@ for (let i = 0; i < 20; i++) {
   createBackgroundItem();
 }
 
-// ====== Слайд 1: Убегающая кнопка и Взрыв сердец ======
+// ====== Слайд 1: Убегающая кнопка ======
 const noBtn = document.getElementById('noBtn');
 const slide1 = document.getElementById('slide1');
 const yesBtn = document.getElementById('yesBtn');
@@ -36,14 +36,19 @@ function dodge() {
   const slideRect = slide1.getBoundingClientRect();
   const btnRect = noBtn.getBoundingClientRect();
 
+  // Вычисляем свободное пространство внутри карточки
   const maxX = slideRect.width - btnRect.width - 40;
-  const maxY = slideRect.height - btnRect.height - 60;
+  const maxY = slideRect.height - btnRect.height - 40;
 
+  // Генерируем случайную позицию
   const newX = Math.random() * maxX + 20;
   const newY = Math.random() * maxY + 20;
 
+  // Применяем новые координаты (убираем старый transform, который центрировал)
   noBtn.style.left = newX + 'px';
   noBtn.style.top = newY + 'px';
+  noBtn.style.bottom = 'auto'; // Отключаем привязку к низу
+  noBtn.style.transform = 'none'; // Убираем сдвиг по X
   
   const texts = ["Нет", "Точно нет?", "Уверена?", "Подумай!", "Не убежишь!", "Давай 'Да'!", "Ну пожалуйста 🥺"];
   noBtn.innerText = texts[Math.min(noAttempts, texts.length - 1)];
@@ -114,13 +119,11 @@ document.querySelectorAll('.next-btn').forEach(btn => {
   });
 });
 
-// ====== Слайд 6: Сбор данных для экрана ======
+// ====== Слайд 6: Сбор данных ======
 function buildReminder() {
-  // 1. Получаем ресторан
   const restaurantVal = document.querySelector('input[name="restaurant"]:checked');
   let restStr = restaurantVal ? restaurantVal.value : 'Ресторан не выбран';
 
-  // 2. Получаем еду (ИСПРАВЛЕНО: ищем ВСЕ выбранные чекбоксы на странице)
   const checkedFood = document.querySelectorAll('input[type="checkbox"]:checked');
   let foodStr = '';
   if (checkedFood.length > 0) {
@@ -130,7 +133,6 @@ function buildReminder() {
     foodStr = 'Ужин не выбран';
   }
 
-  // 3. Получаем дату и время
   const dateVal = document.getElementById('datePicker').value;
   const timeVal = document.getElementById('timePicker').value;
 
@@ -143,7 +145,6 @@ function buildReminder() {
 
   let timeStr = timeVal ? timeVal : 'время уточним';
 
-  // Формируем красивый текст для экрана
   const text = `📍 ${restStr}\n🍽 ${foodStr}\n📅 ${dateStr}\n⏰ ${timeStr}`;
   document.getElementById('reminderText').innerText = text;
 }
