@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Один вопрос для тебя 💕</title>
+  <title>Приглашение для Александры 💕</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Фоновые элементы (маленькие эмодзи) -->
+  <!-- Фоновые элементы (маленькие эмодзи и животные) -->
   <div id="background-elements"></div>
   
-  <!-- Ваши нарисованные животные на фоне -->
   <img src="cat1.png" class="bg-animal animal-1" alt="Котенок">
   <img src="cat2.png" class="bg-animal animal-2" alt="Котенок 2">
   <img src="bunny1.png" class="bg-animal animal-3" alt="Кролик">
@@ -24,6 +23,7 @@
 
   <!-- Слайд 1: Вопрос -->
   <section id="slide1" class="slide active">
+    <h1 class="funny-title">Александра, вы получили приглашение на ужин от лысого джентльмена. Вы согласны?</h1>
     <div class="heart-container">
       <div class="heart-bg"></div>
       <button id="yesBtn" class="yes-in-heart">Да 💖</button>
@@ -34,68 +34,101 @@
 
   <!-- Слайд 2: Благодарность -->
   <section id="slide2" class="slide">
-    <h1>Спасибо, что согласилась 🥹</h1>
-    <p class="sub">Я знал, что ты скажешь да.</p>
+    <h1>Спасибо, что согласилась!</h1>
+    <p class="sub">Хотя выбора у тебя не было 🤣</p>
     <button class="next-btn" data-next="slide3">Далее →</button>
   </section>
 
-  <!-- Слайд 3: Дата и время -->
+  <!-- Слайд 3: Выбор ресторана -->
   <section id="slide3" class="slide">
-    <h2>Когда тебе удобно?</h2>
-    <label>Выбери дату:</label>
-    <input type="date" id="datePicker">
-    <label>Выбери время:</label>
-    <input type="time" id="timePicker">
+    <h2>Выбери заведение</h2>
+    <div class="grid-container">
+      <label class="select-card">
+        <input type="radio" name="restaurant" value="Фреско">
+        <span class="icon">🍝</span>
+        <span>Фреско</span>
+      </label>
+      <label class="select-card">
+        <input type="radio" name="restaurant" value="Распутин">
+        <span class="icon">🥩</span>
+        <span>Распутин</span>
+      </label>
+      <label class="select-card">
+        <input type="radio" name="restaurant" value="Булгаков">
+        <span class="icon">📚</span>
+        <span>Булгаков</span>
+      </label>
+      <label class="select-card">
+        <input type="radio" name="restaurant" value="Дзеими">
+        <span class="icon">🏮</span>
+        <span>Дзеими</span>
+      </label>
+    </div>
     <button class="next-btn" data-next="slide4">Далее →</button>
   </section>
 
-  <!-- Слайд 4: Еда и кухня -->
+  <!-- Слайд 4: Выбор ужина -->
   <section id="slide4" class="slide">
-    <h2>Что хочешь попробовать?</h2>
-    <div class="food-grid">
-      <label class="food-card">
-        <input type="checkbox" value="Пицца">
-        <span class="food-icon">🍕</span>
-        <span>Пицца</span>
+    <h2>Какой ужин предпочитаешь?</h2>
+    <div class="grid-container">
+      <label class="select-card">
+        <input type="checkbox" value="Легкий ужин">
+        <span class="icon">🥗</span>
+        <span>Легкий ужин</span>
       </label>
-      <label class="food-card">
-        <input type="checkbox" value="Суши">
-        <span class="food-icon">🍣</span>
-        <span>Суши</span>
+      <label class="select-card">
+        <input type="checkbox" value="Наедаемся на все бабки">
+        <span class="icon">💰</span>
+        <span>Наедаемся на все бабки</span>
       </label>
-      <label class="food-card">
-        <input type="checkbox" value="Бургер">
-        <span class="food-icon">🍔</span>
-        <span>Бургер</span>
+      <label class="select-card">
+        <input type="checkbox" value="Десертики">
+        <span class="icon">🧁</span>
+        <span>Десертики</span>
       </label>
-      <label class="food-card">
-        <input type="checkbox" value="Шашлык">
-        <span class="food-icon">🍢</span>
-        <span>Шашлык</span>
-      </label>
-      <label class="food-card">
-        <input type="checkbox" value="Торт">
-        <span class="food-icon">🍰</span>
-        <span>Торт</span>
-      </label>
-      <label class="food-card">
-        <input type="checkbox" value="Винишко">
-        <span class="food-icon">🍷</span>
-        <span>Винишко</span>
+      <label class="select-card">
+        <input type="checkbox" value="Шашлычок с вином">
+        <span class="icon">🍢</span>
+        <span>Шашлычок с вином</span>
       </label>
     </div>
     <button class="next-btn" data-next="slide5">Далее →</button>
   </section>
 
-  <!-- Слайд 5: Напоминание -->
+  <!-- Слайд 5: Выбор даты -->
   <section id="slide5" class="slide">
+    <h2>Когда тебе удобно?</h2>
+    <label>Выбери дату:</label>
+    <input type="date" id="datePicker">
+    <label>Выбери время:</label>
+    <input type="time" id="timePicker">
+    <button class="next-btn" data-next="slide6">Далее →</button>
+  </section>
+
+  <!-- Слайд 6: Напоминание и отправка -->
+  <section id="slide6" class="slide">
     <h2>Запомнила? 😊</h2>
     
-    <!-- Милая картинка с животными на память (используем bunny1.png) -->
     <img src="bunny1.png" class="slide-animal" alt="Кролик">
     
-    <p class="reminder" id="reminderText"></p>
-    <p class="love">Люблю тебя ❤️</p>
+    <form action="https://formsubmit.co/ВАША_ПОЧТА@example.com" method="POST" id="resultForm">
+      <!-- Скрытые поля для письма -->
+      <input type="hidden" name="_subject" value="Результаты свидания с Александрой! 💖">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      
+      <!-- Сюда скрипт вставит данные -->
+      <input type="hidden" name="Ресторан" id="formRestaurant">
+      <input type="hidden" name="Ужин" id="formFood">
+      <input type="hidden" name="Дата" id="formDate">
+      <input type="hidden" name="Время" id="formTime">
+
+      <p class="reminder" id="reminderText"></p>
+      
+      <button type="submit" class="next-btn" style="margin-top: 15px;">Отправить и закрыть 💌</button>
+    </form>
+
+    <p class="love">С тебя поцелуй в мою шикарную лысину ❤️</p>
   </section>
 
   <script src="script.js"></script>
