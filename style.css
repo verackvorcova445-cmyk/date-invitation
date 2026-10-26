@@ -36,31 +36,23 @@ body {
   100% { transform: translateY(0) rotate(0deg); }
 }
 
-/* ================= БОЛЬШИЕ ЖИВОТНЫЕ НА ФОНЕ ================= */
+/* ================= ЖИВОТНЫЕ НА ФОНЕ (генерируются в JS) ================= */
+.animal-source {
+  display: none; /* Скрываем исходные картинки */
+}
+
 .bg-animal {
   position: fixed;
   z-index: 1;
   pointer-events: none; 
-  opacity: 0.85; 
+  opacity: 0.9; 
+  /* Плавная анимация покачивания */
+  animation: floatBig ease-in-out infinite alternate;
 }
 
-/* Картинки стали БОЛЬШЕ (от 180px до 250px), а анимация МЕДЛЕННЕЕ (от 15s до 25s) */
-.animal-1 { width: 220px; top: 2%; left: 2%; animation: floatBig 18s ease-in-out infinite alternate; }
-.animal-2 { width: 180px; bottom: 8%; left: 10%; animation: floatBig 22s ease-in-out infinite alternate-reverse; }
-.animal-3 { width: 200px; top: 15%; left: -2%; animation: floatBig 25s ease-in-out infinite alternate; }
-.animal-4 { width: 160px; bottom: 2%; left: 25%; animation: floatBig 20s ease-in-out infinite alternate-reverse; }
-.animal-5 { width: 250px; top: 45%; left: 2%; animation: floatBig 24s ease-in-out infinite alternate; }
-.animal-6 { width: 170px; top: 70%; left: 15%; animation: floatBig 19s ease-in-out infinite alternate-reverse; }
-
-.animal-7 { width: 240px; top: 5%; right: 2%; animation: floatBig 21s ease-in-out infinite alternate; }
-.animal-8 { width: 190px; bottom: 10%; right: 10%; animation: floatBig 23s ease-in-out infinite alternate-reverse; }
-.animal-9 { width: 210px; top: 30%; right: -2%; animation: floatBig 17s ease-in-out infinite alternate; }
-.animal-10 { width: 180px; bottom: 2%; right: 25%; animation: floatBig 26s ease-in-out infinite alternate-reverse; }
-.animal-11 { width: 230px; top: 65%; right: 5%; animation: floatBig 20s ease-in-out infinite alternate; }
-
 @keyframes floatBig {
-  0% { transform: translateY(0px) rotate(-5deg); }
-  100% { transform: translateY(-50px) rotate(5deg); }
+  0% { transform: translateY(0px) rotate(-10deg); }
+  100% { transform: translateY(-60px) rotate(10deg); }
 }
 
 /* ================= ВЗРЫВ СЕРДЕЦ ================= */
@@ -153,7 +145,6 @@ body {
 
 .yes-in-heart:active { transform: scale(0.95); }
 
-/* ИСПРАВЛЕНО: Кнопка "Нет" изначально стоит по центру под сердечком */
 .no-btn {
   background: #9e9e9e;
   color: white;
@@ -164,7 +155,6 @@ body {
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   position: absolute;
-  /* Задаем точное позиционирование по центру */
   left: 50%;
   bottom: 60px;
   transform: translateX(-50%);
@@ -279,7 +269,7 @@ h2 { color: #c2185b; margin-bottom: 20px; font-size: 22px; }
 
 .compliment-img {
   width: 100px;
-  animation: floatBig 4s ease-in-out infinite alternate;
+  animation: floatBig 3s ease-in-out infinite alternate;
 }
 
 .left-img { transform: rotate(-10deg); }
@@ -327,7 +317,7 @@ h2 { color: #c2185b; margin-bottom: 20px; font-size: 22px; }
 .slide-animal {
   width: 150px;
   margin-bottom: 10px;
-  animation: floatBig 5s ease-in-out infinite alternate;
+  animation: floatBig 4s ease-in-out infinite alternate;
 }
 
 /* Подсказка про скриншот */
