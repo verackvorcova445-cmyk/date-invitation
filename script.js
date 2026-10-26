@@ -1,6 +1,6 @@
 // ====== Генерация фона ======
 const bgContainer = document.getElementById('background-elements');
-const bgEmojis = ['❤️', '💖', '💕', '🌸', '✨', '👨‍🦲']; // Добавил лысину для смеха
+const bgEmojis = ['❤️', '💖', '💕', '🌸', '✨', '👨‍🦲']; // Лысина для смеха
 
 function createBackgroundItem() {
   const el = document.createElement('div');
@@ -114,13 +114,13 @@ document.querySelectorAll('.next-btn').forEach(btn => {
   });
 });
 
-// ====== Слайд 6: Сбор данных и отправка ======
+// ====== Слайд 6: Сбор данных для экрана ======
 function buildReminder() {
-  // 1. Получаем ресторан
+  // 1. Ресторан
   const restaurantVal = document.querySelector('input[name="restaurant"]:checked');
   let restStr = restaurantVal ? restaurantVal.value : 'Ресторан не выбран';
 
-  // 2. Получаем еду
+  // 2. Еда
   const checkedFood = document.querySelectorAll('.slide:nth-child(4) input[type="checkbox"]:checked');
   let foodStr = '';
   if (checkedFood.length > 0) {
@@ -130,7 +130,7 @@ function buildReminder() {
     foodStr = 'Ужин не выбран';
   }
 
-  // 3. Получаем дату и время
+  // 3. Дата и время
   const dateVal = document.getElementById('datePicker').value;
   const timeVal = document.getElementById('timePicker').value;
 
@@ -143,13 +143,7 @@ function buildReminder() {
 
   let timeStr = timeVal ? timeVal : 'время уточним';
 
-  // 4. Формируем красивый текст для экрана
-  const text = `📍 ${restStr}\n🍽 ${foodStr}\n📅 ${dateStr}\n⏰ ${timeStr}\n\nЖду с нетерпением!`;
+  // Формируем красивый текст для экрана
+  const text = `📍 ${restStr}\n🍽 ${foodStr}\n📅 ${dateStr}\n⏰ ${timeStr}`;
   document.getElementById('reminderText').innerText = text;
-
-  // 5. Записываем данные в скрытые поля формы для отправки на почту
-  document.getElementById('formRestaurant').value = restStr;
-  document.getElementById('formFood').value = foodStr;
-  document.getElementById('formDate').value = dateStr;
-  document.getElementById('formTime').value = timeStr;
 }
